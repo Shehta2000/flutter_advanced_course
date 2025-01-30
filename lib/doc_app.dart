@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_advanced_course/core/routing/routes.dart';
-import 'package:flutter_advanced_course/core/theming/colors.dart';
+import 'core/routing/routes.dart';
+import 'core/theming/colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'core/routing/app_router.dart';
@@ -22,7 +22,7 @@ class DocApp extends StatelessWidget {
          primaryColor: ColorManager.mainBlue,
          scaffoldBackgroundColor: Colors.white,
        ),
-       initialRoute: Routes.onBoardingScreen,
+       initialRoute: Routes.splashScreen,
        onGenerateRoute: appRouter.generateRoute,
      ),
     );

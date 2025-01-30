@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_advanced_course/core/theming/colors.dart';
+import 'colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TextStyles {
