@@ -16,20 +16,9 @@ LoginResponse _$LoginResponseFromJson(Map<String, dynamic> json) =>
       status: json['status'] as bool?,
     );
 
-Map<String, dynamic> _$LoginResponseToJson(LoginResponse instance) =>
-    <String, dynamic>{
-      'message': instance.message,
-      'data': instance.userData,
-      'code': instance.code,
-      'status': instance.status,
-    };
 
 UserData _$UserDataFromJson(Map<String, dynamic> json) => UserData(
       token: json['token'] as String?,
       username: json['username'] as String?,
     );
 
-Map<String, dynamic> _$UserDataToJson(UserData instance) => <String, dynamic>{
-      'token': instance.token,
-      'username': instance.username,
-    };
