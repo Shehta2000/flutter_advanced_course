@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_advanced_course/core/di/dependency_injection.dart';
+import '../../features/home/ui/home_screen.dart';
+import '../di/dependency_injection.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../features/login/logic/cubit/login_cubit.dart';
 import '../../features/login/ui/login_screen.dart';
@@ -13,6 +14,11 @@ class AppRouter {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) => const OnboardingScreen(),
+        );
+        case Routes.homeScreen:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const HomeScreen(),
         );
       case Routes.loginScreen:
         return MaterialPageRoute(

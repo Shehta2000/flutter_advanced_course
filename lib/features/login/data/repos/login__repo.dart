@@ -1,5 +1,5 @@
-import 'package:flutter_advanced_course/core/networking/api_error_handler.dart';
-import 'package:flutter_advanced_course/core/networking/api_result.dart';
+import '../../../../core/networking/api_error_handler.dart';
+import '../../../../core/networking/api_result.dart';
 
 import '../../../../core/networking/api_service.dart';
 import '../models/login_request_body.dart';
