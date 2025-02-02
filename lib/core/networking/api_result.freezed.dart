@@ -19,19 +19,19 @@ mixin _$ApiResult<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(T data) success,
-    required TResult Function(String message) faliare,
+    required TResult Function(ErrorHandler errorHandler) faliare,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T data)? success,
-    TResult? Function(String message)? faliare,
+    TResult? Function(ErrorHandler errorHandler)? faliare,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T data)? success,
-    TResult Function(String message)? faliare,
+    TResult Function(ErrorHandler errorHandler)? faliare,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -147,7 +147,7 @@ class _$SuccessImpl<T> implements Success<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(T data) success,
-    required TResult Function(String message) faliare,
+    required TResult Function(ErrorHandler errorHandler) faliare,
   }) {
     return success(data);
   }
@@ -156,7 +156,7 @@ class _$SuccessImpl<T> implements Success<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T data)? success,
-    TResult? Function(String message)? faliare,
+    TResult? Function(ErrorHandler errorHandler)? faliare,
   }) {
     return success?.call(data);
   }
@@ -165,7 +165,7 @@ class _$SuccessImpl<T> implements Success<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T data)? success,
-    TResult Function(String message)? faliare,
+    TResult Function(ErrorHandler errorHandler)? faliare,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -224,7 +224,7 @@ abstract class _$$FaliareImplCopyWith<T, $Res> {
           _$FaliareImpl<T> value, $Res Function(_$FaliareImpl<T>) then) =
       __$$FaliareImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({String message});
+  $Res call({ErrorHandler errorHandler});
 }
 
 /// @nodoc
@@ -240,13 +240,13 @@ class __$$FaliareImplCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? message = null,
+    Object? errorHandler = null,
   }) {
     return _then(_$FaliareImpl<T>(
-      null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
+      null == errorHandler
+          ? _value.errorHandler
+          : errorHandler // ignore: cast_nullable_to_non_nullable
+              as ErrorHandler,
     ));
   }
 }
@@ -254,14 +254,14 @@ class __$$FaliareImplCopyWithImpl<T, $Res>
 /// @nodoc
 
 class _$FaliareImpl<T> implements Faliare<T> {
-  const _$FaliareImpl(this.message);
+  const _$FaliareImpl(this.errorHandler);
 
   @override
-  final String message;
+  final ErrorHandler errorHandler;
 
   @override
   String toString() {
-    return 'ApiResult<$T>.faliare(message: $message)';
+    return 'ApiResult<$T>.faliare(errorHandler: $errorHandler)';
   }
 
   @override
@@ -269,11 +269,12 @@ class _$FaliareImpl<T> implements Faliare<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FaliareImpl<T> &&
-            (identical(other.message, message) || other.message == message));
+            (identical(other.errorHandler, errorHandler) ||
+                other.errorHandler == errorHandler));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, message);
+  int get hashCode => Object.hash(runtimeType, errorHandler);
 
   /// Create a copy of ApiResult
   /// with the given fields replaced by the non-null parameter values.
@@ -287,29 +288,29 @@ class _$FaliareImpl<T> implements Faliare<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(T data) success,
-    required TResult Function(String message) faliare,
+    required TResult Function(ErrorHandler errorHandler) faliare,
   }) {
-    return faliare(message);
+    return faliare(errorHandler);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T data)? success,
-    TResult? Function(String message)? faliare,
+    TResult? Function(ErrorHandler errorHandler)? faliare,
   }) {
-    return faliare?.call(message);
+    return faliare?.call(errorHandler);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T data)? success,
-    TResult Function(String message)? faliare,
+    TResult Function(ErrorHandler errorHandler)? faliare,
     required TResult orElse(),
   }) {
     if (faliare != null) {
-      return faliare(message);
+      return faliare(errorHandler);
     }
     return orElse();
   }
@@ -347,9 +348,9 @@ class _$FaliareImpl<T> implements Faliare<T> {
 }
 
 abstract class Faliare<T> implements ApiResult<T> {
-  const factory Faliare(final String message) = _$FaliareImpl<T>;
+  const factory Faliare(final ErrorHandler errorHandler) = _$FaliareImpl<T>;
 
-  String get message;
+  ErrorHandler get errorHandler;
 
   /// Create a copy of ApiResult
   /// with the given fields replaced by the non-null parameter values.

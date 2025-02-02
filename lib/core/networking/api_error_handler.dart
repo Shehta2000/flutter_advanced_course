@@ -1,11 +1,8 @@
-// ignore_for_file: non_constant_identifier_names
-
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:dio/dio.dart';
 
 import 'api_constans.dart';
 import 'api_error_model.dart';
-
-
 
 // TODO: wallahy I will refactor this .. Omar Ahmed
 enum DataSource {
@@ -125,6 +122,9 @@ extension DataSourceExtension on DataSource {
 
 class ErrorHandler implements Exception {
   late ApiErrorModel apiErrorModel;
+  ErrorHandler({
+    required this.apiErrorModel,
+  });
 
   ErrorHandler.handle(dynamic error) {
     if (error is DioException) {
