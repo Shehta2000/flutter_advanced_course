@@ -15,11 +15,7 @@ class AppRouter {
           settings: settings,
           builder: (_) => const OnboardingScreen(),
         );
-        case Routes.homeScreen:
-        return MaterialPageRoute(
-          settings: settings,
-          builder: (_) => const HomeScreen(),
-        );
+       
       case Routes.loginScreen:
         return MaterialPageRoute(
           settings: settings,
@@ -27,6 +23,11 @@ class AppRouter {
             create: (context) => getIt<LoginCubit>(),
             child: const LoginScreen(),
           ),
+        );
+         case Routes.homeScreen:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const HomeScreen(),
         );
 
       default:
