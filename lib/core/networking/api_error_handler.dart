@@ -126,7 +126,7 @@ class ErrorHandler implements Exception {
     required this.apiErrorModel,
   });
 
-  ErrorHandler.handle(dynamic error) {
+  ErrorHandler.handle(dynamic error) { {
     if (error is DioException) {
       // dio error so its an error from response of the API or from dio itself
       apiErrorModel = _handleError(error);
@@ -135,6 +135,7 @@ class ErrorHandler implements Exception {
       apiErrorModel = DataSource.DEFAULT.getFailure();
     }
   }
+}
 }
 
 ApiErrorModel _handleError(DioException error) {
