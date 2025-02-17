@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_advanced_course/core/helper/spacing.dart';
+import 'package:flutter_advanced_course/core/theming/colors.dart';
 import 'package:flutter_advanced_course/core/theming/styles.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeTopBar extends StatelessWidget {
   const HomeTopBar({super.key});
@@ -19,12 +22,13 @@ class HomeTopBar extends StatelessWidget {
   
         ),
         Text('How are you today?',style: TextStyles.font14greyReglur,),
-        
           ],
         ),
+       const  Spacer(),
         CircleAvatar(
-          backgroundColor: Colors.grey[200],
-          child:  const Icon(Icons.notifications,color: Colors.black,)),
+          radius: 24.r,
+          backgroundColor: ColorsManager.moreLighterGray,
+          child:  const  Icon(Icons.notifications,color:Colors.black,)),
       ],
 
     );
