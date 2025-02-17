@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_advanced_course/features/login/data/models/login_request_body.dart';
 import 'package:flutter_advanced_course/features/login/ui/widgets/email_and_password.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../core/helper/spacing.dart';
 import '../../../core/theming/styles.dart';
 import '../../../core/widgets/app_text_button.dart';
+import '../data/models/login_request_body.dart';
 import '../logic/cubit/login_cubit.dart';
 import 'widgets/dont_have_account_text.dart';
 import 'widgets/login_bloc_listener.dart';
@@ -20,6 +20,8 @@ class LoginScreen extends StatefulWidget {
  bool isObscureText = true;
 
 class _LoginScreenState extends State<LoginScreen> {
+  bool isObscureText = true;
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,7 +64,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     verticalSpace(16),
                     const TermsAndConditionsText(),
-                    verticalSpace(60),
+                    verticalSpace(30),
                     const DontHaveAccountText(),
                      const  LoginBlocListener(),                   
                   ],
@@ -76,11 +78,14 @@ class _LoginScreenState extends State<LoginScreen> {
   }
   
   validateThenDoLogin(BuildContext context) {
-    if(context.read<LoginCubit>().formKey.currentState!.validate()){
-      context.read<LoginCubit>().emitLoginStates(LoginRequestBody(
-        email: context.read<LoginCubit>().emailController.text,
-      password: context.read<LoginCubit>().passwordController.text));
-      
+
+      if (context.read<LoginCubit>().formKey.currentState!.validate()) {
+        context.read<LoginCubit>().emitLoginStates(
+          LoginRequestBody(
+            email: context.read<LoginCubit>().emailController.text,
+            password: context.read<LoginCubit>().passwordController.text,
+          ),
+        );
+      }      
     }
   }
-}
