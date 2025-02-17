@@ -10,6 +10,11 @@ class TextStyles {
     fontWeight: FontWeightHelper.bold,
     color: Colors.black,
   );
+  static TextStyle font14greyReglur = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: const Color(0xff616161),
+  );
 
   static TextStyle font32BlueBold = TextStyle(
     fontSize: 32.sp,
