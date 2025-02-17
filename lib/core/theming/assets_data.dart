@@ -5,6 +5,7 @@ class AssetsData {
   static const String splashBackground = 'assets/images/splash_background.jpg';
   static const String homePattern = 'assets/images/home_pattern.png';
   static const String doctorsImage = 'assets/images/doctors_image.png';
+  static const String specialityDoctor = 'assets/svgs/Man Doctor Europe 1.svg';
 
 
 }
