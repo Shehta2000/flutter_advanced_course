@@ -12,6 +12,7 @@ void main() {
     builder: (BuildContext context) { 
       return DocApp(
         appRouter: AppRouter(),
+        
       );
 
      },
