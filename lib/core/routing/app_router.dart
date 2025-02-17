@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_advanced_course/features/sign_up/logic/sign_up_cubit.dart';
 import 'package:flutter_advanced_course/features/sign_up/ui/sign_up_screen.dart';
 import '../../features/home/ui/home_screen.dart';
 import '../di/dependency_injection.dart';
@@ -28,7 +29,10 @@ class AppRouter {
          case Routes.signUpScreen:
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => const SignUpScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<SignupCubit>(),
+            child: const SignupScreen(),
+          ),
         );
          case Routes.homeScreen:
         return MaterialPageRoute(
